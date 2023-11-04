@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    </head>
+<body>
+    <script type="text/javascript">
+        //조건문 if
+        //반복문 for while
+        //함수 function
+        //함수= 재사용성, 유지보수의 용이, 가독성 
+
+        // function 함수명(){
+
+        //     return 반환값 =출력 
+        // }
+
+        // function numbering (){ //함수를 정의
+        //     i=0;
+        //     while(i<20){
+        //         document.write(i);
+        //         i+=1;
+        //     }
+            
+        // }
+        // numbering();//함수를 호출 ()를 안 쓰면 변수로 인식하기 때문에 ()써주기
+        // numbering();//2번 호출하면 함수 2번 실행됨
+
+
+        //출력
+        //     function get_member1(){
+        //         return "egoing1"
+        //         return "egoing2"
+        //         return "egoing3"
+        //         return "egoing4"
+        //     }
+        //    alert(get_member1());    egoing1 만 출력됨 , return 은 egoing1만 출력하고 함수가 종료됨, 이후 return은 동작하지 않음
+
+        //입력
+    //     function get_argument(arg){  //arg = (매개)변수parameter라고 부름
+    //         return arg;
+    //     }
+    //     alert(get_argument(1)); //get argument 함수를 호출할 때 함수의 괄호 안에 1을 넣어준다는 의미, arg=1
+    //     alert(get_argument(2)); //arg=2    => 인자argument라고 부름
+    // 
+    //  function get_arguments(arg1,arg2){
+    //     return arg1+arg2;
+    //  }
+    // alert(get_arguments(10,20));
+    // alert(get_arguments(20,30));
+    numbering = function(){
+        i=0;
+        while(i<20){
+            document.write(i+"<br>");
+            i+=3;
+        }
+    }
+    for(var i=0; i<1000; i++){
+        numbering();
+    }
+    </script>
+</body>
+</html>
