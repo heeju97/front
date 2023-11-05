@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   </head>
+<body>
+   <script type="text/javascript">
+    
+    /* 배열 
+    여러 개의 데이터를 하나의 변수에 담아 관리하는 방법 var ??? ['a','b','c'] abc=엘리먼트
+    a=0 b=1 c=2 등 고유의 번호를 갖게됨(색인,index)
+    ex) 2번째 저장된 값을 가져오고 싶으면 alert(???[1]);
+    */
+    //배열 만들기 []로 시작해서 []로 끝나야함
+    var member = ["aa","bb","cc"] //aa,bb,cc 를 하나의 그릇에 담음, 그 그릇을 member라는 변수에 담은 것
+    // 1번째 저장된 값을 가져오고 싶으면 alert(member[0]);
+
+
+    //배열의 효용
+    /*
+    배열이 없으면?
+    함수는 여러 개의 입력 값을 받을 수 있지만 출력값(return)은 하나
+    => 하나의 함수는 하나의 값만을 반환할 수 있기 때문에 배열을 사용하면 더 활용적? 
+    */
+   //ex1 
+   /* function member1(){
+    return 'aa'
+   }
+   document.write(member1());
+   function member2(){
+    return 'bb'
+   }
+   document.write(member2());
+   function member3(){
+    return 'cc'
+   }
+   document.write(member3()); */
+
+   //ex2 
+   /* function get_members(){
+    return ['aa','bb','cc'];
+   }
+   var members = get_members(); 
+   document.write(members[0]);
+   document.write(members[1]);
+   document.write(members[2]); */
+   //ex1, ex2는 같은 값을 출력, 배열을 사용하면 코드를 줄일 수 있음, 연관된 정보를 한꺼번에 다룰 수 있음
+
+
+   //배열의 사용
+   //반복문과 결합했을 때 가치 발휘됨. 반복문으로 리스트에 담긴 정보를 하나씩 꺼내서 처리할 수 있음
+//    function get_members(){
+//     return ['aa','bb','cc'];    // 3개의 리턴값을 갖는 함수
+//    }
+//    members = get_members(); // members 안에는 배열의 데이터가 담겨져있음
+//    //각각의 닉네임을 화면에 출력(대문자로)
+//    document.write(members[0].toUpperCase()+'<br>'); //toUpperCase = 대문자
+//    document.write(members[1].toUpperCase()+'<br>');
+//    document.write(members[2].toUpperCase()+'<br>');
+
+//    var a =['aa','bb','cc'];
+//    alert(a.length); = 배열에 담겨있는 값(원소)의 개수를 알려줌 => 3
+
+// function get_members(){
+//     return['aa','bb','cc','dd'];
+// }
+// var members = get_members();
+
+// for(i=0; i<3; i++){ // i의 최대는 2이기 때문에 값이 3인 'dd'는 출력되지 않음
+//     document.write(members[i].toUpperCase()+"<br>"); 
+// }
+
+function get_members(){
+    return['aa','bb','cc','dd','ee'];
+}
+var members = get_members();
+
+for(i=0; i<members.length; i++){ // i범위에 .length 를 하면 배열의 값만큼 다 출력가능
+    //length는 n개(1부터 시작), 배열의 값(i)은 0부터 시작
+    document.write(members[i].toUpperCase()+"<br>"); 
+}
+
+//배열의 제어
+//배열에 원소를 추가하는 방법
+// 배열의 앞=언시프트 배열의 끝=푸시 배열의 중간=스플라이스
+// .push 인자 사용하기 하나의 값을 추가하는 방법, push는 오리지널 값이 아예 바뀐다
+/*ex) 
+li = ['a','b','c'];  => li는 배열을 의미
+↘li.length = 3
+↘li.push('d'); => push라는 함수가 소속된 배열(li)의 꼬리(끝)에 d가 추가된다
+↘li = ['a','b','c','d'];
+↘li.length = 4
+*/
+
+// push는 꼬리에 추가하는 인자라면 unshift는 배열의 첫 번째에 추가
+/*
+var li = ['a','b','c','d','e'];
+li.unshift(['z']);
+alert(li); => ['z',a','b','c','d','e']; 
+각 원소의 인덱스 값도 바뀜, 원래 a가 0이었지만 z를 시작으로 0, a= 1 ~~~
+*/
+
+// splice => splice(index,howmany) 
+/*
+var a = ['a','b','c'];
+a => ['a','b','c]
+
+ex1) a.splice(1,0,'d') 인덱스 값이 1인 b라는 값 앞에 'd'를 추가한다는 것
+a => ['a','d','b','c'] 
+ex2) a.splice(1,1,'x','y') 인덱스 값이 1인 b에서 1개의 원소를 삭제하고 뒤에 따라오는 값을 삭제된 위치에 집어넣는다
+a => ['a','x','y','c'] 
+*/
+
+
+//concat 인자 사용하기 여러 개의 데이터를 한꺼번에 추가하는 방법 ( 여러개를 추가할 경우 푸시보단 콘캣을 사용)
+//concat은 오리지널 값은 그대로 두고 새로운 값이 생긴다
+/*
+ex)
+var li=['a','b','c','d','e'];
+li = li.concat(['f','g'];
+alert(li); => ['a','b','c','d','e','f']
+*/
+
+// 오리지널 데이터를 아예 변경할 것인지(push), 오리지널 데이터를 따로 두고 추가할 것인지(concat)
+//판단하고 사용해야함
+
+//배열의 제어= 데이터를 추가하거나 삭제하거나 끼워넣는 등
+//배열의 크기를 알아내는 방법
+var arr = [1,2,3,4,5];
+alert(arr.length);
+   </script> 
+</body>
+</html>
