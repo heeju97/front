@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+    <ul>
+    <script type="text/javascript">
+        // {객체} object = 데이터를 담아내는 그릇
+        // 인덱스 값을 숫자, 텍스트(first second etc..)로 정의할 수 있음 ([배열]의 인덱스 값은 숫자만 가능 0부터~)
+
+        //var grades = {'egoing':10, 'k1234':6,'abc':80};
+        // 배열에서의 인덱스는 0,1,2,3 같은 숫자, 객체에서의 인덱스는 문자(egoing k1234 abc)
+        //grades Object {egoing:10,k1234:6,abc:80};
+        // egoing이라는 인덱스에 해당하는 값을 찾고 싶으면 grades ['egoing'] => 10,  or grades.egoing =>10 
+        //객체 안에서 eoging, k1234, abc는 key , key에 연결된 값 10,6,80은 value     
+        
+        // 배열은 저장된 데이터들이 순서를 가짐, 먼저 들어간 것과 나중에 들어간 것이 기록되어 있기 때문에 내부적으로 유지되고 있음
+        // 데이터를 가져오게 되면 집어넣은 순서대로 꺼내올 수 있음. 
+        // 객체 안에 저장된 값은 순서가 없다. key value가 있음.
+    
+        //배열에 있는 값을 가져올 때 for in문을 사용함(배열에서도 사용 가능) => 새로운 반복문의 형태
+        // for (객체의 key값(변수) in 객체) 
+        /*
+        var grades = {'egoing':10, 'k1234':6,'abc':80};
+        for (var name in grades) {
+            document.write("<li>key:"+name+"value:"+grades[name]+"</li>");
+        }
+        */
+        // => grades라고 하는 변수가 가리키는 그릇에 담겨있는 값들을 하나씩 가져와서 key값을 담음
+        var grades = {
+            'list':{'egoing':10,'k1234':9,'zxc':80}
+            
+        }
+
+        alert(grades['list']['egoing']);
+
+    </script>
+    </ul>
+</body>
+</html>
