@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript event</title>
+</head>
+<body>
+    <!-- 목표
+    **** Night Day 버전 만들기 ****
+    1. 버튼만들기 = input(button) 태그 사용, onclick속성 사용(javscript)
+    night 버튼을 선택하면 배경색 black, 글씨 white
+    day 버튼을 선택하면 배경색 white, 글씨 black
+    <input type="button" value="원하는 글씨 적기" onclick="alert('클릭했을 때 나타나길 원하는 글씨')">
+    1. onclick 의 속성값으로는 javascript 가 와야한다.
+    2. onclick 의 속성값은 웹 브라우저가 기억하고 있다가 속성이 위치한 태그를 클릭했을사 javascript 코드를 해석해 동작한다
+    => 웹 브라우저 위에서 일어나는 일을 event(사건) 라고 한다
+    즉, event가 일어났을 때 javascript가 실행되도록 하는 것을 onclick이라고 한다.
+    event: 클릭하는 onclick, 글씨를 입력할 수 있는 onchange 등 여러가지
+    
+    -->
+    <div style="text-align: center;" >
+        <h1 style="font-size: 50px;" >Button을 눌러보세요</h1>
+
+        <input type="button" value="Night" style="width: 300px; height: 50px;"
+        onclick="document.querySelector('body').style.backgroundColor='black'; 
+        document.querySelector('div').style.color='white';
+        document.querySelector('span').style.color='red';
+        change();
+        // var color = document.querySelectorAll('.purple');
+        //     for(i=0; i<color.length; i++){
+        //         color[i].style.color='purple';
+        //     }   script를 input:onclick에 넣어도 실행됨
+        "
+        >
+        <input type="button" value="Day"  style="width: 300px; height: 50px;"
+        onclick="document.querySelector('body').style.backgroundColor='white'; 
+        document.querySelector('div').style.color='black';
+        document.querySelector('span').style.color='blue';
+        change1();
+        // var color = document.querySelectorAll('.purple');
+        //     for(i=0; i<color.length; i++){
+        //         color[i].style.color='green';
+        //     }
+        ">
+
+        <ul style="font-size: 30px; list-style-type: none; ">
+            <li>input 태그로 버튼 만들기</li>
+            <li><span style="font-weight: bold;">javascript event</span> 이용해 각 <span class="purple">버튼을 누르면</span> 배경색, 글자색 바뀌게 설정하기</li>
+            <li><span class="purple">onclick</span>="document.querySelector('body or div 등 ').style.backgroundColor=black 등</li>
+            <li>Night button 누르면 배경색 검정색, 글자색 흰색</li>
+            <li>Day button 누르면 배경색 흰색, 글자색 검정색</li>
+        </ul>
+
+        <script>
+            function change(){
+                var color = document.querySelectorAll('.purple');
+                for (i=0; i<color.length; i++){
+                    color[i].style.color='purple';
+                }
+            }
+            function change1(){
+                var color = document.querySelectorAll('.purple');
+                for (i=0; i<color.length; i++){
+                    color[i].style.color='green';
+                }
+            }
+            // var color = document.querySelectorAll('.purple');
+            // for(i=0; i<color.length; i++){
+            //     color[i].style.color='purple';
+            // }
+        </script>
+    </div>
+    
+    <!--
+        
+        Q1. querySelector는 class 의 상위 element 1개만을 가져온다. => 같은 클래스가 여러개라면 맨 위의 값만 적용되기 때문에
+        ul li 에 작성한 span.purple 에 다 적용되지 않고 상위 purple에만 적용됨
+
+        Q2. 모든 클래스에 같은 효과를 주고싶으면 어떻게 해야하는가?
+        1. 클래스 명을 다 다르게 해서 같은 효과를 준다 => 코드가 길어짐, 뭔가 바보같음
+        2. querySelectorAll 을 사용한다. 특정 CSS 선택자를 가진 모든 요소를 배열로 가져오는 메서드.
+        document.querySelectorAll('.purple').style.color='purple'; 을 사용했지만 동작하지 않음
+        => querySelectorAll 은 <script> 반복문 필요
+        ==> js실습2 에서 다루기
+
+        Q3. querySelectorAll 을 사용하여 글자색을 보라색으로 만드는 데에 성공 but 그냥 스크립트로 작성했기 때문에 웹 페이지를 켜자마자 색이 변해있음
+        나는 onclick시 색이 변경되길 바라는데 script를 어디에 넣어야 하는가? 
+        1. input에는 넣을 수 없어보임
+        2. script태그를 제외하고 var~반복문을 onclick 에 넣어도 되나? => 된다. 왜지?? 정상적인 방법인가..?
+        => console돌려봤을 때 unexpected token < 이라고만 뜨는데 해당 코드에는 문제가 없는 건가
+        3. 함수를 작성해서 클릭했을 시 함수가 작동되도록 다시 만들어야 하는가? => change라는 함수 선언하고 onclick에서 호출하기 => 된다. 
+        nigth든 day든 일단 한 번 클릭하면 글씨가 보라색으로 바뀌기 때문에 두번째로 버튼을 눌렀을 때 잘 실행돼서 보라색이 나오는 건지,
+        아니면 이전에 클릭한 효과로 보라색이 유지되는 건지 모르겠어서 day button의 onclick을 연두색으로 변하는 change1 함수를 새로 선언해서 호출했더니 녹색으로 잘 나옴
+        
+        
+    -->
+</body>
+</html>
