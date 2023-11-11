@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>쿼리셀렉터</title>
+    <style>
+        h1 {font-size: 30px; font-weight: bold;}
+        .bold {font-weight: bold; margin-bottom: 50px; font-size: 20px;}
+    </style>
+</head>
+<body>
+   <h1> * abc라는 클래스를 가진 요소들 중 세 번째 요소만 글자색을 바꾸고 싶을 때</h1>
+    <p class="bold">script 태그 사용 => 변수를 지정하고 가져올 클래스 값 지정, 어떻게 동작할지 지정</p>
+    <p class="abc">세 번째 요소만 글자색을 빨간색으로 바꾸고 싶당</p>
+    <p class="abc">세 번째 요소만 글자색을 빨간색으로 바꾸고 싶당</p>
+    <p class="abc">세 번째 요소만 글자색을 빨간색으로 바꾸고 싶당</p>
+    <script>
+      var color = document.querySelectorAll( '.abc' );
+      color[2].style.color = 'red';
+
+     /* 
+     변수[index값].style~~~~~
+     */ 
+    </script>
+
+
+   <h1> * def라는 클래스를 가진 모든 요소의 글자색을 바꾸고 싶을 때</h1>
+    <p class="bold">script 태그 사용 => 변수를 지정하고 반복문을 작성</p>
+
+
+    <p class="def">모든 요소의 글자색을 녹색으로 바꾸고 싶당</p>
+    <p class="def">모든 요소의 글자색을 녹색으로 바꾸고 싶당</p>
+    <p class="def">모든 요소의 글자색을 녹색으로 바꾸고 싶당</p>
+    <script>
+    var green = document.querySelectorAll( '.def' );
+    for ( var i = 0; i < green.length; i++ ) {
+        green[i].style.color = 'green';
+    }
+    /*
+    변수 green은 클래스 def를 가진 요소
+    반복문: i가 0, i의 값이 green보다 작을 때까지 반복, 반복문을 실행할 때 마다 i의 값은 1씩 증가
+
+    */
+    </script>   
+
+    <h1>* ghi 혹은 jkl 라는 클래스를 가진 모든 요소의 글자 색을 바꾸고 싶을 때</h1>
+    <p class="bold">script 태그 사용 => 변수를 지정하고 반복문을 작성</p>
+    <p class="ghi">모든 요소의 글자색을 주황색으로 바꾸고 싶당</p>
+    <p class="ghi">모든 요소의 글자색을 주황색으로 바꾸고 싶당</p>
+    <p class="jkl">모든 요소의 글자색을 주황색으로 바꾸고 싶당</p>
+    <p>모든 요소의 글자색을 주황색으로 바꾸고 싶당</p>
+    
+    <script>
+      var orange = document.querySelectorAll( '.ghi, .jkl' );
+      for ( var i = 0; i < orange.length; i++ ) {
+        orange[i].style.color = 'orange';
+      }
+    </script>   
+</body>
+</html>
