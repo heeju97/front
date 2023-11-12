@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>실습3</title>
+</head>
+<body>
+    <!--
+         목표 : night, day 말고도 toggle 이라는 버튼을 생성해 버튼을 클릭하면 
+         day 모드일 때 toggle 버튼을 실행하면 night 모드를 실행하고
+         night 모드일 때 toggle 버튼을 실행하면 day 모드를 실행하도록 만든다 !! 
+
+        toggle 을 만들 때 필요한 것 : 연산자와 boolean, 조건문의 개념
+
+     -->
+    <h1><a href="index.html">WEB</a></h1>
+    <!-- night 버튼 -->
+    <input type="button" value="Night"
+    onclick="
+    document.querySelector('body').style.backgroundColor = 'black';
+    document.querySelector('body').style.color = 'white';
+    " >
+    <!-- day 버튼 -->
+    <input type="button" value="Day"
+    onclick="
+    document.querySelector('body').style.backgroundColor = 'white';
+    document.querySelector('body').style.color = 'black';
+    " >
+    <!-- toggle 버튼 
+    value 값이 night라면 버튼을 눌렀을 때 night 코드가 실행되고
+    value 값이 day라면(night가 아니라면) 버튼을 눌렀을 때 day 코드가 실행되게 
+    -->
+    <input id="toggle" type="button" value="night" onclick="
+    if(document.querySelector('#toggle').value === 'night'){
+        document.querySelector('body').style.backgroundColor = 'black';
+        document.querySelector('body').style.color = 'white';
+        document.querySelector('#toggle').value = 'day'   
+    } else {
+        document.querySelector('body').style.backgroundColor = 'white';
+        document.querySelector('body').style.color = 'black';
+        document.querySelector('#toggle').value = 'night'
+    }
+    ">
+<!-- 
+    Q1. #toggle이 night인 경우 실행되고 아닌 경우 else가 실행된다.
+    nigth 가 실행됐기 때문에 value는 게속 nigth(or day) 이므로 버튼을 게속 눌러도 바뀌지 않는다.
+    그래서 해당 코드가 실행됐을 때 value 값을 바꾸어 주어야 한다
+    nigth가 실행된 경우 value= day, day가 실행된 경우 night로
+    근데 document.querySelector('#toggle').value = 'day' 에서 연산자를 == 혹은 ===로 작성하면
+    실행되지 않는다. 왜지??
+    
+    A1. 
+    ===(일치연산자)는 엄격하다. 좌항과 우항의 관계에 따라 true or false를 만들어내는 연산자.
+    쉽게 생각해서, ===는 좌항과 우항이 같다라고 표현할 때 쓰고 =(대입연산자) 는 좌항에 우항 값을 준다고 할 때 사용
+    그래서 document.querySelector('#toggle').value = 'day' id toggle의 value 값에 day를 주고싶으니까
+    ===가 아닌 =를 사용하는 것이 맞다.
+ -->
+    <ol>
+        <li><a href="1.html">HTML</a></li>
+        <li><a href="2.html">CSS</a></li>
+        <li><a href="3.html">JAVASCRIPT</a></li>
+    </ol>
+    <h2>javascript</h2>
+    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+</body>
+</html>
