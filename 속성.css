@@ -1,0 +1,79 @@
+* {
+    /* box-sizing : 박스 크기를 맞춤
+    기본적으로 
+    요소의 너비= width + padding + border
+    요소의 실제 높이 = height + padding + border 
+    요소의 너비/높이를 설정할 때 요소가 설정한 것보다 더 크게 나타나는 경우가 많은데
+    padding과 border가 값에 포함되기 때문
+    box-sizing : content-box; 콘텐츠 영역을 기준으로 크기를 정함
+    box-sizing : border-box: 테두리 영역을 기준으로 크기를 정함(패딩과 보더가 크기에 포함)
+    box-sizing :initial: 기본값으로 설정
+    box-sizing :inherit: 부모의 속성을 상속받음*/
+    box-sizing: border-box;
+    box-sizing: content-box;
+    box-sizing: inherit;
+    box-sizing: initial;
+    
+
+/*
+    display: none; 화면에서 사라지며 크기도 차지하지 않음 
+    
+    display: block; 가로 한 줄을 차지
+    block =  가로 영역을 모두 차지하며 줄 바꿈이 되어 새로운 라인에서 시작. 크기 지정 가능!
+    기본적으로 block성질을 갖는 태그 = div p h form li 등
+    
+    display: inline; 컨텐츠를 감쌀 정도의 크기
+    기본적으로 inline성질을 갖는 태그 => span a b i img 등
+    inline = 줄바꿈이 되지 않고 크기, 여백을 지정할 수 없음!
+    
+    display: inline-block; 인라인과 블럭의 성질을 다 가짐, 기본적으로 인라인 속성을 지님
+    inline-block = 요소 자체는 인라인처럼 줄바꿈이 되지 않지만, 내부에서는 블록요소처럼 동작하므로, 크기나 여백 지정가능
+
+    display: flex; 아이템들을 가로 or 세로 방향으로 배치할 수 있는 방식
+    크기가 불분명한 요소나 동적인 요소를 정렬하는 효율적인 방법 (1차원)
+
+    display: grid; flex와 다르게 2차원으로 배치하는 방식
+    grid-template-rows: ;를 사용해 가로에 배치할 셀들의 비율이나 크기를 지정
+    grid-template-columns: ;를 사용해 세로에 배치할 셀들의 비율이나 크기를 나타냄
+    
+    grid-template-rows나 grid-template-columns에 입력할 수 있는 단위는 px, fr이 있는데 
+    fr은 fraction으로 숫자 비율대로 트랙의 크기를 나누는 것.
+    즉 grid-template-columns : 1fr 1fr 1fr 은 1:1:1로 나누는 것이고
+    grid-template-columns : 100px 3fr 1fr 은 첫번째 셀은 100px, 두번째 셀과 세번째 셀은 남은 부분을 3:1로 나누어 차지한다.
+    
+    * ⭐️ display flex 와 함께 사용하는 속성 justify-content(가로 정렬), align-items(세로 정렬)
+    justify-content: flex-start; 요소들을 컨테이너 왼쪽으로 정렬
+    justify-content: flex-end; 요소들을 컨테이너 오른쪽으로 정렬
+    justify-content: center; 요소들을 컨테이너 가운데로 정렬
+    justify-content: space-between; 요소들 사이에 동일한 간격을 둠
+    justify-content: space-around; 요소들 주위에 동일한 간격을 둠
+    
+    display: table; 레이아웃을 table로 표현할 수 있는 속성
+    display : table // table 요소처럼 표현하기
+    display : table-row // tr 요소처럼 표현하기
+    display : table-column // col 요소처럼 표현하기
+    display : table-cell // td 요소처럼 표현하기
+    display : table-caption // caption요소처럼 표현하기
+    */
+    display: none; 
+    display: block;
+    display: inline;
+    display: inline-block;
+    display: flex;
+    display: grid;
+    
+    /* 
+    position
+    position: static;  기본 설정값
+    position: relative; 태그의 위치를 살짝 변경하고 싶을 때 사용
+    top(위), right(오른쪽), bottom(아래), left(왼쪽) 속성을 사용해 위치 조절가능
+    position: absolute; position: static 속성을 가지고 있지 않은 조상을 기준으로 움직입니다. 만약 조상 중에 포지션이 relative, absolute, fixed인 태그가 없다면 가장 위의 태그(body)가 기준이 됨.
+    position: fixed; 위치 고정
+    */
+    position: static;
+    position: relative;
+    position: absolute;
+    position: fixed;
+} 
+
+    
