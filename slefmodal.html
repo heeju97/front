@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>modal</title>
+    <link rel="stylesheet" href="selfmodal.css">
+</head>
+<body>
+    <div class="content">
+        <div class="box1">
+            <div class="pop1">💖 모달창 열기 💖</div>
+            <button class="click1">💓 클릭 💓</button>
+        </div>
+    </div>
+    <div class="modal">
+        <div class="box2">
+            <div class="pop2">👏 모달창이 열렸습니다 👏</div>
+            <button class="click2">❌ 닫기 ❌</button>
+        </div>
+    </div>
+    <script>
+        const openButton = document.querySelector(".click1");
+        const closeButton = document.querySelector(".click2");
+        const modal1 = document.querySelector(".box1");
+        const modal2 = document.querySelector(".box2");
+        const bgc = document.querySelector("body");
+
+        openButton.addEventListener("click",()=>{
+            modal1.style.display = "none";
+            modal2.style.display = "flex";
+            bgc.style.backgroundColor = "lightgray"
+        })
+
+
+        closeButton.addEventListener("click",()=>{
+            modal2.style.display = "none";
+            modal1.style.display = "flex";
+            bgc.style.backgroundColor = "#fff";
+        })
+    </script>
+</body>
+</html>
