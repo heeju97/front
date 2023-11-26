@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        }
+
+        body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+            Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        display: flex;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+        column-gap: 10px;
+        font-size: 48px;
+        font-weight: bold;
+        }
+
+        .time {
+        width: 80px;
+        text-align: center;
+        letter-spacing: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="time hour">00</div><!-- 시계에서 시를 나타내는 부분 -->
+    <div class="divider">:</div> <!-- 시계의 스타일을 잡기 위한 부분 -->
+    <div class="time min">00</div><!-- 시계에서 분을 나타내는 부분 -->
+    <div class="divider">:</div> <!-- 시계의 스타일을 잡기 위한 부분 -->    
+    <div class="time sec">00</div><!-- 시계에서 초를 나타내는 부분 -->
+
+    <script>
+        const hour = document.querySelector('.hour');
+        const min = document.querySelector('.min');
+        const sec = document.querySelector('.sec');
+
+        // 현재 시간을 가져오기 위해 시간과 날짜에 대한 정보를 담고있는 date 라는 객체를 사용
+        
+        function clock(){
+            const now = new Date();
+            hour.innerText = now.getHours(); //현재 시간의 정보를 가져와 hour의 inner text에 해당 시간 정보를 넣음
+            min.innerText = now.getMinutes();
+            sec.innerText = now.getSeconds();
+
+        }
+        
+        //시간이 뜨긴 하지만 시간이 흐르지 않고 코드가 실행된 시간에 멈춰있음 => 1초에 1번씩 저 작업을 반복해주면 됨 = setInterval(반복해서 실행할 함수, 딜레이시간)
+        setInterval(clock,1000); // 시간은 ms 단위이므로 1초는 1000ms
+
+    </script>
+</body>
+</html>
