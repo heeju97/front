@@ -1,64 +1,35 @@
-*{
-    margin: 0;
-    padding: 0;
-    /* 초기화 */
+/*  css : cascading style sheets */
+/* 적용할 수 있는 방법
+1. 인라인방식 => 가장 우선순위가 높다
+ex) <div style= "background-color:pink"></div>
+2. internal 방식
+head 안에 style 태그를 열어 작성
+3. external 방식 (가장 많이 사용)
+새로운 파일을 만들어 작성하는 방법
+
+!important > inline >
+*/
+
+* {margin: 0;padding: 0;}
+
+form {
+    margin: auto; width: 50%; margin-top: 5%;
+    font-size: 20px;text-align: center;}
+
+h2 {font-size: 50px; display: inline-block; margin-bottom: 5%;}    
+
+input {width: 40%; height: 30px;
+    border: 1px solid #aaa;border-radius: 5px;margin-bottom: 1%; 
+    text-indent: 5px;
 }
 
-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+label {
+    text-align: center; 
+    display: inline-block; margin-bottom: 1%;}
 
-.header {
-    width: 100%;
-    background-color: #3b5999;
-    color: #fff;
-    text-align: center;
-    padding: 1rem;
-}
+#checkbox-input {width: 5%; position: relative; top: 7px; left: 5px;}
 
-.world-display {
-    margin-top: 3rem;
-    font-size: 80px;
-    color: #3b5999;
-
-}
-
-.world-input-box {
-    padding: 0.5rem;
-    width: 300px;
-
-}
-
-.world-input {
-    padding: 0.5rem;
-    width: 300px;
-}
-
-.game-info{
-    margin-top: 2rem;
-    font-size: 14px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.time, .score {
-    font-size: 30px;
-}
-
-.button {
-    width: 200px;
-    height: 35px;
-    background-color: #3b5999;
-    color: #fff;
-    border: none;
-    margin-top: 3rem;
-    cursor: pointer;
-}
-
-.loding {
-    background: #ccc;
-    cursor: not-allowed;
-}
+#blue { 
+    background-color: #87b1f5; color: #fff; 
+    font-size: 23px; height: 50px; border: none; margin-top: 5%;
+    cursor: pointer;}
