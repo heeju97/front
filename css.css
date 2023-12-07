@@ -1,0 +1,140 @@
+/* 
+⭐️css 적용방법⭐️
+1. 내부 스타일시트 ; html head 태그 사이에 style 태그를 넣어 작성
+2. 외부 스타일시트 ; 별도의 파일에 css 문서를 작성하고 불러오기 link rel=#$%^&
+3. 인라인 스타일 ; html 태그 안에 속성을 직접 작성, 권장하지 않음!
+우선순위: 인라인 > 내부 스타일시트 > 외부 스타일시트 > 브라우저 디자인
+
+⭐️css는 선택자와 선언부로 구성⭐️
+선택자 (selector) : 디자인을 적용하고자 하는 html요소
+선언부 (declaration) : 콜론: 으로 구분되어진 다수의 항목을 포함
+각 선언은 항상 세미콜론;으로 끝나며 선언블록은 {중괄호}로 묶음
+
+⭐️셀렉터⭐️
+: 기본 셀렉터에는 .클래스, #아이디, <태그>가 있음
+,를 이용해 셀렉터를 나열하면 해당 셀렉터들에 동일한 속성을 부여할 수 있다
+1. 클래스 : ex) .🍔 => html에서 🍔라는 클래스를 갖는 영역 선택
+2. 아이디 : ex) #🍔 => html에서 🍔라는 아이디를 갖는 영역 선택
+3. * : * {*&^%$} => 문서내 모든 요소 선택
+4. 태그 : ex) p => 문서내 모든 <p> 태그 영역 선택
+5. 태그, 태그 : ex) div, p => 모든 <div> 와 <p> 태그 영역 선택
+6. 태그 태그 : ex) div p => <div> 태그 안에 있는 모든 <p> 태그 영역 선택
+
+⭐️속성⭐️
+1. 텍스트 속성
+    - color : 글자색 지정
+    - text-align : 주어진 영역에서 글자의 정렬 방식을 지정 (left, center, right)
+
+2. 폰트 속성
+    - font-family : 폰트의 이름과 유형을 지정하는 속성, 나열된 순서대로 폰트가 적용
+    - font-style : 폰트의 스타일을 지정 (normal, italic, underline 등)
+    - font-fize : 폰트의 크기를 지정 (px, %, em, rem 등)
+    - font-weight : 폰트의 두께를 지정 (normal, bold, bolder 등)
+    - font-variant : 폰트의 변형을 지정
+ 
+3. 정렬 속성
+    - text-align : 요소내 텍스트의 정렬
+    - vertical-align : 인라인 혹은 테이블 셀에서 수직 정렬
+
+4. 링크 속성
+    : 하이퍼링크를 만들기 위한 <a>태그에 적용할 수 있는 속성
+    *가상셀렉터
+    a:link = 방문한적 없는 기본 링크
+    a:visited = 방문한 링크
+    a:hover = 마우스가 링크 위에 올라갔을 때
+    a:active = 링크를 클릭했을 때
+    
+5. 컬러 속성
+    - color: red 텍스트로 지정
+    - color: #ff0000 컬러코드로 지정
+    - color: rgb(255,0,0) rgb로 지정
+
+6. 배경 속성
+    - background-color : 배경색 지정
+    - background-image : 배경 이미지 지정(상대경로, 절대경로, url사용가능)
+    - background-repeat : 이미지 반복
+    - background-position : 이미지의 위치를 지정
+    - background-attachment : 이미지의 스크롤이나 고정을 지정
+
+
+
+⭐️박스모델⭐️
+html문서의 구성요소들은 기본적으로 박스형태로 정의
+
+    1. 박스개요
+    :박스 모델은 테두리(border) 내용(content), 안쪽 여백(padding) 바깥쪽 여백(margin) 네가지로 구성되며 
+    각 요소는 상 하 좌 우 네 영역을 개별적으로 설정할 수 있다
+
+    - border box:  박스를 둘러싼 테두리 영역
+    - contents box: 콘텐츠 영역으로 텍스트 및 이미지의 실제 영역
+    - margin box: 박스의 외부 영역으로 바로 앞 박스와의 여백
+    - padding box: 테두리와 콘텐츠 사이의 안쪽 여백
+
+    2. 박스크기
+    :박스요소에 크기를 지정하면 기본적으로 ❗️콘텐츠영역❗️에 적용 (box-sizing: border-box 로 변경해 지정할 수도 있음)
+    실제 박스의 크기는 border, margin, padding을 모두 더해야 하기 때문에 박스들을 적절히 배치하기 위해선 이들의 크기가 함께 고려되어야 함
+
+    3. border
+    - border-width: 테두리의 두께를 지정하는 속성, 상하좌우를 개별적으로 조절가능, 상하 좌우를 묶어서 조절 가능
+    - border-style: 테두리 모양을 지정하는 속성, 실선 점선 이중선 등 사용가능하며 상하좌우 모든 다른 모양으로 조절 가능
+    - border-color: 테두리 색상을 지정하는 속성
+    - border-radius: 테두리의 모서리를 둥글게 만드는 속성, px % 등의 단위를 이용해 조절 가능
+
+    4. margin 속성
+    : 박스와 인접 요소간의 여백을 말하며 박스간의 적절한 배치를 위해 사용할 수 있으며 박스를 가운데 정렬하기 위해 사용하기도 함
+    - margin: auto: 브라우저가 자동으로 마진을 조정한다
+    - margin: inherit: 부모 요소의 마진을 상속받는다
+
+⭐️레이아웃⭐️
+: 레이아웃은 화면의 배치를 말한다
+기본적으로 박스의 배치 방법을 결정하는 position이 있으며 나란히 배치되는 박스 콘텐츠들을 지정하기 위해 float, display 속성 등이 사용됨
+    1. 그리드 시스템 (Grid system)
+    : 화면을 테이블과 유사하게 가로, 세로의 격자로 나누는 것을 말한다
+    2. 컨테이너 (container)
+    : 컨테이너는 다른 물건을 담을 수 있는 그릇의 의미를 가짐 => 다른 구성요소를 포함할 수 있는 박스 영역
+
+⭐️position⭐️
+:박스 구성요소를 배치하기 위한 속성
+어떤 position 속성을 사용하냐에 따라 위치가 달라짐
+    - posotion: static : position속성의 기본값, 나열한 순서대로(왼->오) 배치, float을 이용해 좌우로 배치할 수 있음
+    - posotion: Relative : 나열한 순서대로 배치되지만 top, right, bottom, left 속성을 사용해 원하는 위치를 지정할 수 있음
+    - posotion:  Absolute : top, right, bottom, left 속성값을 이용해 원하는 요소를 원하는 위치에 배치할 수 있음
+                            이때 기준위치는 가장 가까운 상위 요소 중 position: relative 인 요소
+                            상위요소가 없다면 브라우저 화면의 좌측 상단을 기준으로 설정됨
+    - posotion:  Fixed : absolute처럼 좌표로 위치를 결정하지만 기준이 부모요소가 아닌 브라우저창이며 페이지를 스크롤 하더라도 고정되어 같은 위치를 유지
+    - posotion: z-index : 박스들이 중첩되는 경우 박스들의 수직 위치를 조정하기 위한 속성 (박스를 앞으로 보내거나 뒤로 보내거나)
+                        z-index값이 작을수록 아래에 배치되며 -인 경우 기준 콘텐츠의 아래쪽을 의미
+                        
+
+⭐️float / display⭐️
+: float: 요소를 화면 위에 떠있는 형식으로 배치, 좌측(float:left) or 우측(float:right)부터 정렬되는 박스 콘텐츠를 배열할 수 있음                        
+: clear: float 속성이 더이상 유용하지 않다고 알려주는 속성으로 기본상태로 되돌리려면 clear:both 사용
+float:left => clear:left; // float:right=> clear:right;
+
+" display: 요소를 보여주는 방식을 지정. 콘텐츠를 안 보이게 할 수도 있고 float을 대체해 콘텐츠를 나란히 배치하는데 사용하기도 함
+    - display: none : 보이지 않음 (visibilit:hidden과 유사하지만, 영역 자체가 사라짐)
+    - display: block: 블록 박스
+    - display: inline: 인라인 박스
+    - display: inline-block: block 과 inline의 중간 상태
+    inline 속성을 가지면서(다른 콘텐츠와 나란히 배치), block의 속성(크기 지정 가능)
+
+
+⭐️박스요소 정렬⭐️
+1. 블럭 요소 가운데 정렬 = > margin :auto;
+2. 블럭 요소 좌우 정렬 = > position: absolute; right: n px 등등)
+3. 블럭 요소 수직 정렬 => padding 속성으로 박스의 안쪽 위 아래 여백을 동일하게 지정
+4. 이미지 가운데 정렬 => 부모 요소의 속성에 text-align: center; or <img display:block> margin:auto;   
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/
