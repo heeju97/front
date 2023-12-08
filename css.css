@@ -126,7 +126,44 @@ float:left => clear:left; // float:right=> clear:right;
 4. 이미지 가운데 정렬 => 부모 요소의 속성에 text-align: center; or <img display:block> margin:auto;   
 
 
+⭐️복합 셀렉터⭐️
+부모요소와 자식요소간의 관계, 상속, 가상클래스 등
 
+1. 상속: 특정 속성들이 부모요소로부터 자식요소로 전달되는 개념 ex) 부모 요소의 색상이 red라면 자식도 red 속성을 물려받음
+모든 속성이 상속되지는 않는다. ex) margin은 상속x
+=> 상속을 이용하면 코드의 중복성을 줄여줘 생산성을 높일 수 있음. 유지 보수가 편하고 재활용이 용이
+
+2. 셀렉터 조합: 원하는 요소를 선택하기 위해 셀렉터를 결합하는 것
+-후손(Descendant) 손택자: selector A selector B
+selector A 의 후손 selector B를 선택. A 요소 아래에 있는 모든 B 요소가 해당
+-자식(Child) 선택자: selector A > selector B
+selector A의 직접적인 자식인 selector B를 선택. A요소 아래에 있는 모든 B를 선택하되 B가 다른 요소의 자식이면 안됨
+-인접(Adjacent Sibling) 형제 선택자: selector A + selector B
+A와 가장 인접한 형제요소 B에 속성 적용. A와 B는 같은 부모 요소를 가지고 있어야 하며 B요소 중에서 A에 가장 인접한 B만 선택됨
+-일반(General Sibling) 형제 선택자: selector A ~ selector B
+A요소의 형제인 모든 B를 선택. A+B와 달리 A이후에 오는 모든 B가 선택됨
+
+3. 가상셀렉터: 가상 클래스와 가상 엘리먼트가 있으며 선택된 요소에 특별한 상태 혹은 특정 부분을 선택할 수 있는 셀렉터
+-가상클래스(pseudo class): 선택된 요소의 특정 상태에 동작하는 셀렉터
+⬇️많이 사용되는 가상 클래스⬇️
+:active 링크를 마우스로 클릭했을 때
+:hover 마우스가 해당 요소의 위로 올라간 경우
+:link 방문하지 않은 모든 링크를 선택
+:focus 인풋 태그에서 해당 요소가 마우스 포커스를 가진 경우
+:checked 인풋 태그에서 체크박스가 체크되었을 때
+:disabled 인풋 태그의 상태가 disabled인 경우, disabled속성 적용시
+:enabled 인풋 태그의 상태가 enabled인 경우
+:first-child 해당 요소의 첫 번째 자식 요소를 선택
+:last-child 해당 요소의 마지막 자식 요소를 선택
+:nth-child(n) 해당 요소의 n번째 자식 요소를 선택
+
+-가상 엘리먼트(pseudo element): 선택된 요소의 특정 위치에 동작하는 셀렉터 ex) 앞, 뒤, 첫 글자, 첫 줄 등
+⬇️많이 사용되는 가상 엘리먼트⬇️
+::after 선택된 요소 다음 위치
+::before 선택된 요소 앞 위치
+::first-letter 선택된 요소의 텍스트 내용중 첫 번째 글자
+::first-line 선택된 요소의 텍스트 내용중 첫 번째 줄
+::selection 선택된 요소에서 텍스트가 선택된 영역
 
 
 
