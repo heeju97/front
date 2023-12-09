@@ -165,6 +165,59 @@ A요소의 형제인 모든 B를 선택. A+B와 달리 A이후에 오는 모든 
 ::first-line 선택된 요소의 텍스트 내용중 첫 번째 줄
 ::selection 선택된 요소에서 텍스트가 선택된 영역
 
+⭐️flex box⭐️
+: flex-box를 사용하면 요소의 크기와 순서를 유연하게 배치할 수 있으며 정렬, 방향, 순서, 크기 등을 유연하게 조절 가능
+복잡한 구현이 필요한 레이아웃 구성도 비교적 쉽게 가능
+-적용 방법: 정렬하려는 요소의 부모요소 display속성을 flex로 지정
+flex-box는 부모요소인 flex-container에 정의하는 속성과 자식 요소인 flex-item에 정의하는 속성으로 구분됨
+
+👉flex-container : 전체적인 정렬이나 흐름에 관련된 속성을 정의함
+*flex-direction: 왼쪽에서 오른쪽, 위에서 아래 방향이 기본이며 각각에 대해 역방향(reverse) 설정도 가능
+row: left→right (기본값)
+row-reverse: right→left
+column: top→bottom
+column-reverse: bottom→top
+
+flex-wrap: 기본적으로 item들을 하나의 라인에 배치될 수 있도록 설정. 화면 크기에 따라 여러 라인에 배치되거나 역방향으로 배치 가능
+wrap: 기본값으로 화면 크기에 따라 여러라인에 배치
+nowrap: 하나의 라인에 모든 item을 배치 (기본값)
+wrap-reverse: 아래쪽에서 위쪽으로 여러 라인에 배치
+
+justify-content: item 을 정렬하는 방식을 지정.
+(기본값이 row 인 경우)
+flex-start, flex-end => 축의 시작 or 종료 위치로 부터 정렬
+center => 중앙 정렬
+space-between => 첫 번째 item은 왼쪽 마지막 item은 오른쪽에 정렬되고 나머지 item을 사이에 정렬
+space-around => item 왼쪽 및 오른쪽 공간을 균등하게 배분
+space-evenly => 모든 item을 동일한 공간으로 배분
+
+align-items
+stretch => 기본값으로 컨테이너를 모두 채워 정렬 
+flex-start, flex-end => 축의 시작 또는 종료 위치로 부터 정렬
+center => 수직축의 중간에 요소들을 배치
+baseline => 베이스라인 정렬
+
+align-content: 여러 라인에 배치된 item들을 수직 정렬하는 방법 지정
+stretch => 기본값으로 컨테이너 전체 높이에 맞게 늘어나 모든 item 배치
+flex-start, flex-end => 전체 item을 축의 시작 또는 종료 위치로 부터 정렬
+center => 전체 item을 하나의 묶음으로 봤을 때 중앙 정렬
+space-between => 첫 번째 item은 위쪽, 마지막 item은 아래쪽에 정렬. 나머지 item을 사이에 정렬
+space-around => item들의 위쪽 및 아래쪽 공간을 균등하게 배분
+
+👉flex-item: 자식요소의 크기나 순서에 관련된 속성을 정의
+order: item들의 정렬 순서를 지정. 0을 기본 값으로 양수와 음수로 item별로 개별 우선순위 지정이 가능
+동일한 우선순위를 가질 경우 진행 방향에 따라 배치됨
+flex-grow, shrink, basis: 아이템들의 너비에 대한 증감 비율을 설정. 0을 기본값으로 특정 단위 없이 지정된 값들의 비율에 따라 너비가 증가되는 구조
+-basis: 아이템의 공간배분전 기본 크기로 auto인 경우 width, height로 크기 지정 가능
+-flex-shrink: 아이템이 감소하는 비율을 설정, item이 가변너비가 아니거나 0이면 효과 없음
+-flex-basis: 아이템이 증가하는 비율을 설정
+flex: item의 너비를 설정하는 단축 속성
+순서대로 grow, shrink, basis값을 부여, 기본값은 0 1 auto
+grow값은 필수값, 나머지는 생략이 가능하다
+
+
+
+
 
 
 
