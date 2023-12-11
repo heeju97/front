@@ -1,35 +1,44 @@
-/*  css : cascading style sheets */
-/* 적용할 수 있는 방법
-1. 인라인방식 => 가장 우선순위가 높다
-ex) <div style= "background-color:pink"></div>
-2. internal 방식
-head 안에 style 태그를 열어 작성
-3. external 방식 (가장 많이 사용)
-새로운 파일을 만들어 작성하는 방법
-
-!important > inline >
-*/
-
-* {margin: 0;padding: 0;}
-
-form {
-    margin: auto; width: 50%; margin-top: 5%;
-    font-size: 20px;text-align: center;}
-
-h2 {font-size: 50px; display: inline-block; margin-bottom: 5%;}    
-
-input {width: 40%; height: 30px;
-    border: 1px solid #aaa;border-radius: 5px;margin-bottom: 1%; 
-    text-indent: 5px;
+*{
+    margin: 0; padding: 0;box-sizing: border-box;
 }
 
-label {
-    text-align: center; 
-    display: inline-block; margin-bottom: 1%;}
+body{
+    background-color: #d8edff;
+}
 
-#checkbox-input {width: 5%; position: relative; top: 7px; left: 5px;}
+.wrap{
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
 
-#blue { 
-    background-color: #87b1f5; color: #fff; 
-    font-size: 23px; height: 50px; border: none; margin-top: 5%;
-    cursor: pointer;}
+.icon {
+    width: 40%; height: 40%;
+}
+
+.bold{
+    font-size: 2rem; font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.thin {
+    font-size: 1.5rem;
+}
+
+#typing {
+    position: relative;
+    display: inline-block;
+}
+
+#typing::after{
+    content: '';
+    display: block;
+    position: absolute; top: 0; right: -10px;
+    width: 3px; height: 100%;
+    background-color: black;
+}
+
+#typing.active::after{
+    display: none;
+}
