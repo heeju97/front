@@ -1,42 +1,46 @@
-// input창에 글자를 입력했을 때 그 값을 받아오는 것
-let score = 0;
-let time = 9;
-let isPlaying = false;
+// 1. 깜빡이 만들기
+// 2. 글자 랜덤으로 나오게 만들기
+// 3. 한 글자씩 타이핑 효과 내기
 
-const worldInput = document.querySelector('.world-input');
-const worldDisplay = document.querySelector('.world-display');
-const scoreDisplay = document.querySelector('.score');
-const timeDisplay = document.querySelector('.time');
-const button = document.querySelector('.button');
-// console.log(worldinput); 잘 걸렸는지 확인
 
-//event 생성 ('이벤트', '기능')
+let cursor = document.querySelector('#typing');
 
-worldInput.addEventListener('input',()=>{
-    // console.log(worldinput.value) 잘 걸렸는지 확인
-    // worldInput.value =
-//    console.log(worldInput.value.toLowerCase()===worldDisplay.innerTexttoLowerCase())
-    if(worldInput.value.toLowerCase()=== worldDisplay.innerText.toLowerCase()){
-        score++;
-        scoreDisplay.innerText = score;
-        worldInput.value='';
+// let textArr = ["Learn to Html","Learn to css","Learn to javascript"]
+// let selectText = textArr[Math.floor(Math.random()*textArr.length)];
+// let selectTextArr = selectText.split("");
+
+
+function reStart(){
+    let textArr = ["Learn to Html","Learn to css","Learn to javascript"]
+    let selectText = textArr[Math.floor(Math.random()*textArr.length)];
+    let selectTextArr = selectText.split("");
+
+    return selectTextArr ;
+}
+
+
+
+function textReset(){
+    cursor.textContent = '';
+    dynamic(reStart());
+}
+
+
+
+function dynamic(random){
+    if(random.length > 0){
+        cursor.textContent += random.shift(); 
+        setTimeout(function(){
+            dynamic(random);
+        },80);
+    }else{
+      setTimeout(textReset,1000);
     }
-});
+}
+dynamic(reStart());
 
-//시간
-
-//setInterval(countDown,1000);
-buttonChange('게임시작')
-
-
-function countDown(){
-    //(조건) ? 참일경우 : 거짓일 경우
-    time>0 ? time -- : isPlaying = false;
-    timeDisplay.innerText = time;
+function blink(){
+    cursor.classList.toggle("active");
 }
 
-
-function buttonChange(text){
-    button.innerText = text;
-    text === '게임시작'? button.classList.remove('loading'):button.classList.add('loading');
-}
+setInterval(blink,500);
