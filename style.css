@@ -1,44 +1,38 @@
 *{
-    margin: 0; padding: 0;box-sizing: border-box;
+    margin: 0;padding: 0;box-sizing: border-box;
 }
+.wr{ width: 100%; height: 100%;
+    position: absolute;
+     /* top: 50%; left: 50%; 
+    transform: translate(-50%,-50%);*/ }
 
-body{
-    background-color: #d8edff;
+.text1{
+    position: fixed; top: 10px; left: 10px; font-weight: bold; font-size: 7rem; color: pink;
+}
+.text2{
+    position: fixed; top: 10px; right: 10px; font-weight: bold; font-size: 7rem; color: powderblue;
+}
+.text3{
+    position: fixed; bottom: 10px; left: 10px; font-weight: bold; font-size: 7rem; color: green;
+}
+.text4{
+    position: fixed; bottom: 10px; right: 10px; font-weight: bold; font-size: 7rem; color: brown;
 }
 
 .wrap{
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
+    position: absolute; top: 50%; left: 50%; 
+    transform: translate(-50%,-50%);
 }
-
-.icon {
-    width: 40%; height: 40%;
-}
-
-.bold{
-    font-size: 2rem; font-weight: bold;
-    margin-bottom: 15px;
-}
-
-.thin {
-    font-size: 1.5rem;
-}
-
-#typing {
+.dynamic{
+    font-size: 5rem; font-weight: bold;
     position: relative;
     display: inline-block;
 }
-
-#typing::after{
-    content: '';
-    display: block;
-    position: absolute; top: 0; right: -10px;
-    width: 3px; height: 100%;
+.dynamic::after{ 
+    content: ''; display: block;
+    position: absolute; top: 0; right: -20px; width: 3px; height: 100%;
     background-color: black;
 }
-
-#typing.active::after{
+.dynamic.active::after{
     display: none;
 }
