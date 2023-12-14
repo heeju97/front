@@ -1,35 +1,62 @@
-/*  css : cascading style sheets */
-/* 적용할 수 있는 방법
-1. 인라인방식 => 가장 우선순위가 높다
-ex) <div style= "background-color:pink"></div>
-2. internal 방식
-head 안에 style 태그를 열어 작성
-3. external 방식 (가장 많이 사용)
-새로운 파일을 만들어 작성하는 방법
-
-!important > inline >
-*/
-
-* {margin: 0;padding: 0;}
-
-form {
-    margin: auto; width: 50%; margin-top: 5%;
-    font-size: 20px;text-align: center;}
-
-h2 {font-size: 50px; display: inline-block; margin-bottom: 5%;}    
-
-input {width: 40%; height: 30px;
-    border: 1px solid #aaa;border-radius: 5px;margin-bottom: 1%; 
-    text-indent: 5px;
+*{
+    margin: 0;padding: 0; box-sizing: border-box;
 }
 
-label {
-    text-align: center; 
-    display: inline-block; margin-bottom: 1%;}
+body{
+    background-color: lightgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
 
-#checkbox-input {width: 5%; position: relative; top: 7px; left: 5px;}
+.calculator{
+    width: 287px;
+    border: 1px solid #333;
+    background-color: #ccc;
+    padding: 5px;
+}
+/*
+4열 grid template columns : repeat(4, Npx)
+셀과 셀 사이의 간격 5px : grid gap 5px
+가로길이 65px grid template columns : repeat(n열, 65px)
+세로길이(행) 65px grid auto rows
+  */
 
-#blue { 
-    background-color: #87b1f5; color: #fff; 
-    font-size: 23px; height: 50px; border: none; margin-top: 5%;
-    cursor: pointer;}
+.calculator form {
+    display: grid;
+    grid-template-columns: repeat(4,65px);
+    grid-auto-rows: 65px; ;
+    grid-gap: 5px;
+}
+
+.calculator form input {
+    border: 2px solid #333;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.calculator form input:hover {
+    box-shadow: 1px 1px 2px #333;
+}
+.clear {
+    background-color: pink;
+}
+.operator{
+    background-color: lightskyblue;
+}
+.dot {
+    background-color: lightgreen;
+}
+
+.calculator form input[type='text']{
+    grid-column: span 4;
+    text-align: right;
+    padding: 0 10px;
+}
+.calculator form .clear{
+    grid-column: span 3;
+}
+.calculator form .result{
+    grid-column: span 2;
+}
